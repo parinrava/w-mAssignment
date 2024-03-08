@@ -1,21 +1,15 @@
 <?php
-
-require_once '../../database_setup.php';
-
-$db = connect_database(); // Ensure this line is in the file that needs to create the `$db` object
-
+require_once '../../db_config.php';
+$db = database_connection(); 
 function get_buckets($db)
-{
-    $query = "SELECT * FROM buckets";
-
-    $results = $db->query($query);
-    $buckets = [];
+{$query = "SELECT * FROM buckets";
+  $results = $db->query($query);
+ $buckets = [];
     if ($results) {
-        while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
-            $buckets[] = $row;
+     while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
+      $buckets[] = $row;
         }
     } else {
-        echo "Query Error: " . $db->lastErrorMsg();
-    }
-    return $buckets;
-}
+        echo "Query Error: " . $db->lastErrorMsg();  } return $buckets;}
+
+    ?>

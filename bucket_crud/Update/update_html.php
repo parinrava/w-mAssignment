@@ -1,21 +1,30 @@
 <?php
-require_once '../../auth/authenticate.php'; // Corrected path
+require_once '../../auth/authenticate.php';
 require_once 'update.php';
-require_once '../../include/footer.php';
+require_once '../../include/navbar.php';
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $id = $_GET['id'];
 
 $bucket = get_bucket_id($db, $id);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Bucket</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,14 +40,12 @@ $bucket = get_bucket_id($db, $id);
             </div>
 
             <div class="form-group">
-                <label for="category">Category:</label>
+                <label for="category">Category Name:</label>
                 <input type="text" id="category" name="category" value="<?php echo htmlspecialchars($bucket['category']); ?>" class="form-control" required>
             </div>
 
-            <input type="submit" value="Update" class="btn btn-primary">
+            <input type="submit" value="Update" class="btn btn-primary bg-success ">
         </form>
-
-        <button class="btn btn-secondary" onclick="location.href='../../bucket_crud/Read/read_html.php'">Back</button>
 </body>
 
 </html>

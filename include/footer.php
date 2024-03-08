@@ -1,10 +1,19 @@
-
 <body>
-    <footer class="footer mt-auto  bg-light ">
-        <div class="container-fluid">
-            <span class="text-muted">Parin Ravanbakhsh, Davin Leong</span>
+    <footer>
+        <div>
+            Parin Ravanbakhsh,    Davin Leong
         </div>
     </footer>
 </body>
-
 </html>
+
+<style>
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+    }

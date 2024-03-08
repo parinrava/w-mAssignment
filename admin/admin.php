@@ -1,26 +1,29 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
+    session_start();}
 $message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
 unset($_SESSION['message']);
+require_once '../db_config.php';
 
-require_once '../database_setup.php';
-//  require_once 'include/navbar.php';
-
-$db = connect_database();
+$db = database_connection();
 $unapproved_users = $db->query("SELECT user_id, email FROM users WHERE is_approved = 0");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Approval</title>
+    <title>Admin Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,9 +49,8 @@ $unapproved_users = $db->query("SELECT user_id, email FROM users WHERE is_approv
                     <?php endwhile; ?>
                 </tbody>
             </table>
-            <input type="submit" value="Approve Selected" class="btn btn-primary">
+            <input type="submit" value="Approve The Selected User" class="btn btn-primary bg-secondary">
         </form>
-        <button onclick="location.href='../home.php'" class="btn btn-secondary mt-3 bg-success">Back</button>
 
     </div>
 </body>

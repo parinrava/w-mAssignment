@@ -1,15 +1,16 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+    session_start();}
+
+
 
 $_SESSION = array();
-if (ini_get("session.use_cookies")) {
+if (ini_get("session.use_cookies")) { 
     $params = session_get_cookie_params();
-    setcookie(
+    setcookie( 
         session_name(),
         '',
-        time() - 42000,
+        time() - 42000, // Set the expiration time to the past
         $params["path"],
         $params["domain"],
         $params["secure"],
@@ -17,6 +18,8 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-session_destroy();
+
+session_destroy();  
 header("Location: ../index.php");
 exit;
+?>

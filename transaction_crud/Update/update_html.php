@@ -7,16 +7,11 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-
 if (isset($_SESSION['message'])) {
     echo $_SESSION['message'];
-    unset($_SESSION['message']);
-}
-
+    unset($_SESSION['message']);}
 $id = $_GET['id'];
-$transaction = get_transaction_id($db, $id); // You need to implement this function
-
-// Convert the transaction date from the database to 'YYYY-MM-DD' format for the date input field.
+$transaction = getTransactionId($db, $id);
 $transaction_date = date('Y-m-d', strtotime($transaction['transaction_date']));
 
 ?>
@@ -29,6 +24,11 @@ $transaction_date = date('Y-m-d', strtotime($transaction['transaction_date']));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Transaction</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,20 +51,15 @@ $transaction_date = date('Y-m-d', strtotime($transaction['transaction_date']));
                 <label for="income">Income:</label>
                 <input type="number" id="income" name="income" step="any" value="<?php echo htmlspecialchars(number_format($transaction['income'], 2, '.', '')); ?>" class="form-control">
             </div>
-            <input type="submit" value="Update" class="btn btn-primary">
+            <input type="submit" value="Update" class="btn btn-primary bg-success">
         </form>
-        <button onclick="window.location.href='../Read/read_html.php'" class="btn btn-secondary">Back</button>
     </div>
 
     <?php
-    // Unset the form data after displaying it
     if (isset($_SESSION['form_data'])) {
-        unset($_SESSION['form_data']);
-    }
+        unset($_SESSION['form_data']); }
     ?>
-
 </body>
-
 </html>
 <?php
 require_once '../../include/footer.php';

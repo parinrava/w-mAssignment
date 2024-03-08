@@ -1,8 +1,8 @@
 <?php
 
-require_once '../../database_setup.php'; // Adjust the path as necessary to ensure correct inclusion
+require_once '../../db_config.php'; // Adjust the path as necessary to ensure correct inclusion
 
-$db = connect_database(); // Make sure this function correctly initializes your SQLite3 database connection
+$db = database_connection(); // Make sure this function correctly initializes your SQLite3 database connection
 
 // PHP to handle deletion from the buckets table
 if (isset($_GET['id'])) {
