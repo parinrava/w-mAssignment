@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy PHP app to Azure Web App - ExpenseTrackerAssignment1
+name: Build and deploy PHP app to Azure Web App - 3975assignement1
 
 on:
   push:
@@ -61,15 +61,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E97F299DA0184409A0CD60FCD9F30E27 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8344D429D9CE4A7A812D622DB4E79831 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A64A807833214E6BA7CFDB6F2EA37447 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F65198107CA1468B826BA6D70F2D37E5 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6AEACB54AEB94294BCFB266EBDF0E18F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F7B166D24EEE4294A83D5B54768C20A0 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'ExpenseTrackerAssignment1'
+          app-name: '3975assignement1'
           slot-name: 'Production'
           package: .
           
