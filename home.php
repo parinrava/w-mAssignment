@@ -1,6 +1,6 @@
 <?php
-require_once 'include/navbar.php';
 include 'db_config.php';
+// require_once 'include/navbar.php';
 include 'upload/upload_form.php';
 require_once 'auth/authenticate.php';
 
@@ -13,6 +13,16 @@ echo "<div class='alert alert-danger'>" . htmlspecialchars($_SESSION['error-mess
 }
 $db = database_connection();
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
     <style>
         body{
             background-color: lightblue;
